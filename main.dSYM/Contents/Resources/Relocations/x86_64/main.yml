@@ -1,0 +1,42 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/elvisperlika/UNI/ALGORITMI E STRUTTURE DATI/elaborato/main'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _graph_create, symObjAddr: 0x0, symBinAddr: 0x100001720, symSize: 0x230 }
+  - { offsetInCU: 0x1AD, offset: 0x1AD, size: 0x8, addend: 0x0, symName: _graph_create, symObjAddr: 0x0, symBinAddr: 0x100001720, symSize: 0x230 }
+  - { offsetInCU: 0x1FF, offset: 0x1FF, size: 0x8, addend: 0x0, symName: _graph_destroy, symObjAddr: 0x230, symBinAddr: 0x100001950, symSize: 0x110 }
+  - { offsetInCU: 0x269, offset: 0x269, size: 0x8, addend: 0x0, symName: _graph_type, symObjAddr: 0x340, symBinAddr: 0x100001A60, symSize: 0x20 }
+  - { offsetInCU: 0x291, offset: 0x291, size: 0x8, addend: 0x0, symName: _graph_add_edge, symObjAddr: 0x360, symBinAddr: 0x100001A80, symSize: 0x1B0 }
+  - { offsetInCU: 0x2ED, offset: 0x2ED, size: 0x8, addend: 0x0, symName: _graph_n_nodes, symObjAddr: 0x510, symBinAddr: 0x100001C30, symSize: 0x60 }
+  - { offsetInCU: 0x315, offset: 0x315, size: 0x8, addend: 0x0, symName: _graph_adj_insert, symObjAddr: 0x570, symBinAddr: 0x100001C90, symSize: 0x80 }
+  - { offsetInCU: 0x367, offset: 0x367, size: 0x8, addend: 0x0, symName: _graph_n_edges, symObjAddr: 0x5F0, symBinAddr: 0x100001D10, symSize: 0x60 }
+  - { offsetInCU: 0x38F, offset: 0x38F, size: 0x8, addend: 0x0, symName: _graph_adj, symObjAddr: 0x650, symBinAddr: 0x100001D70, symSize: 0xD0 }
+  - { offsetInCU: 0x3C5, offset: 0x3C5, size: 0x8, addend: 0x0, symName: _minheap_clear, symObjAddr: 0x720, symBinAddr: 0x100001E40, symSize: 0xA0 }
+  - { offsetInCU: 0x3F7, offset: 0x3F7, size: 0x8, addend: 0x0, symName: _minheap_create, symObjAddr: 0x7C0, symBinAddr: 0x100001EE0, symSize: 0x170 }
+  - { offsetInCU: 0x430, offset: 0x430, size: 0x8, addend: 0x0, symName: _minheap_destroy, symObjAddr: 0x930, symBinAddr: 0x100002050, symSize: 0x90 }
+  - { offsetInCU: 0x456, offset: 0x456, size: 0x8, addend: 0x0, symName: _minheap_is_empty, symObjAddr: 0x9C0, symBinAddr: 0x1000020E0, symSize: 0x70 }
+  - { offsetInCU: 0x480, offset: 0x480, size: 0x8, addend: 0x0, symName: _minheap_is_full, symObjAddr: 0xA30, symBinAddr: 0x100002150, symSize: 0x70 }
+  - { offsetInCU: 0x4AA, offset: 0x4AA, size: 0x8, addend: 0x0, symName: _minheap_get_n, symObjAddr: 0xAA0, symBinAddr: 0x1000021C0, symSize: 0x60 }
+  - { offsetInCU: 0x4D4, offset: 0x4D4, size: 0x8, addend: 0x0, symName: _minheap_min, symObjAddr: 0xB00, symBinAddr: 0x100002220, symSize: 0x70 }
+  - { offsetInCU: 0x4FE, offset: 0x4FE, size: 0x8, addend: 0x0, symName: _minheap_min2, symObjAddr: 0xB70, symBinAddr: 0x100002290, symSize: 0x70 }
+  - { offsetInCU: 0x528, offset: 0x528, size: 0x8, addend: 0x0, symName: _minheap_insert, symObjAddr: 0xBE0, symBinAddr: 0x100002300, symSize: 0x170 }
+  - { offsetInCU: 0x57B, offset: 0x57B, size: 0x8, addend: 0x0, symName: _move_up, symObjAddr: 0xD50, symBinAddr: 0x100002470, symSize: 0x100 }
+  - { offsetInCU: 0x5BF, offset: 0x5BF, size: 0x8, addend: 0x0, symName: _minheap_delete_min, symObjAddr: 0xE50, symBinAddr: 0x100002570, symSize: 0x120 }
+  - { offsetInCU: 0x5F8, offset: 0x5F8, size: 0x8, addend: 0x0, symName: _swap, symObjAddr: 0xF70, symBinAddr: 0x100002690, symSize: 0x260 }
+  - { offsetInCU: 0x64B, offset: 0x64B, size: 0x8, addend: 0x0, symName: _move_down, symObjAddr: 0x11D0, symBinAddr: 0x1000028F0, symSize: 0x100 }
+  - { offsetInCU: 0x6A4, offset: 0x6A4, size: 0x8, addend: 0x0, symName: _minheap_change_prio, symObjAddr: 0x12D0, symBinAddr: 0x1000029F0, symSize: 0x180 }
+  - { offsetInCU: 0x706, offset: 0x706, size: 0x8, addend: 0x0, symName: _valid, symObjAddr: 0x1450, symBinAddr: 0x100002B70, symSize: 0x80 }
+  - { offsetInCU: 0x73F, offset: 0x73F, size: 0x8, addend: 0x0, symName: _getIndex, symObjAddr: 0x14D0, symBinAddr: 0x100002BF0, symSize: 0x20 }
+  - { offsetInCU: 0x787, offset: 0x787, size: 0x8, addend: 0x0, symName: _dijkstra, symObjAddr: 0x14F0, symBinAddr: 0x100002C10, symSize: 0x1C0 }
+  - { offsetInCU: 0x816, offset: 0x816, size: 0x8, addend: 0x0, symName: _printPath, symObjAddr: 0x16B0, symBinAddr: 0x100002DD0, symSize: 0x1E0 }
+  - { offsetInCU: 0x8A5, offset: 0x8A5, size: 0x8, addend: 0x0, symName: _getIJ, symObjAddr: 0x1890, symBinAddr: 0x100002FB0, symSize: 0x30 }
+  - { offsetInCU: 0x8F8, offset: 0x8F8, size: 0x8, addend: 0x0, symName: _fillMatrix, symObjAddr: 0x18C0, symBinAddr: 0x100002FE0, symSize: 0x110 }
+  - { offsetInCU: 0x98B, offset: 0x98B, size: 0x8, addend: 0x0, symName: _fillGraph, symObjAddr: 0x19D0, symBinAddr: 0x1000030F0, symSize: 0x440 }
+  - { offsetInCU: 0xA0B, offset: 0xA0B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1E10, symBinAddr: 0x100003530, symSize: 0x320 }
+  - { offsetInCU: 0xAFB, offset: 0xAFB, size: 0x8, addend: 0x0, symName: _get_path, symObjAddr: 0x2130, symBinAddr: 0x100003850, symSize: 0x70 }
+  - { offsetInCU: 0xB61, offset: 0xB61, size: 0x8, addend: 0x0, symName: _new_edge, symObjAddr: 0x21A0, symBinAddr: 0x1000038C0, symSize: 0xA0 }
+  - { offsetInCU: 0xBC1, offset: 0xBC1, size: 0x8, addend: 0x0, symName: _parent, symObjAddr: 0x2240, symBinAddr: 0x100003960, symSize: 0x70 }
+  - { offsetInCU: 0xBFA, offset: 0xBFA, size: 0x8, addend: 0x0, symName: _min_child, symObjAddr: 0x22B0, symBinAddr: 0x1000039D0, symSize: 0x100 }
+  - { offsetInCU: 0xC60, offset: 0xC60, size: 0x8, addend: 0x0, symName: _lchild, symObjAddr: 0x23B0, symBinAddr: 0x100003AD0, symSize: 0x70 }
+  - { offsetInCU: 0xC99, offset: 0xC99, size: 0x8, addend: 0x0, symName: _rchild, symObjAddr: 0x2420, symBinAddr: 0x100003B40, symSize: 0x67 }
+...
