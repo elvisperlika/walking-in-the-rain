@@ -9,7 +9,7 @@
                 "-Wall",
                 "-Wpedantic",
                 "-g",
-                "${workspaceFolder}/main.c",
+                "${workspaceFolder}/0000970373.c",
                 "-o",
                 "${workspaceFolder}/main"
             ],

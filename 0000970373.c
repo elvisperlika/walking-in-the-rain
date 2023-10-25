@@ -19,17 +19,14 @@ typedef struct {
 
 typedef struct {
     HeapElem *heap;
-    int *pos; /* TODO: non inizializzato! Usare solo dopo una implementazione funzionante di minheap_change_prio() in cui la chiave da modificare si trova con una normale ricerca lineare sull'array heap[] */
-    int n; /* quante coppie (chiave, prio) sono effettivamente presenti nello heap */
-    int size; /* massimo numero di coppie (chiave, prio) che possono essere contenuti nello heap */
+    int *pos; 
+    int n; 
+    int size; 
 } MinHeap;
 
-/* Crea uno heap vuoto in grado di contenere al più `size` coppie
-   (chiave, priorità); le chiavi possono essere esclusivamente gli
-   interi 0 .. `size` - 1; ogni chiave può essere presente nello heap
-   al più una volta. Inizialmente lo heap è vuoto.
-
-   Precondizione: size > 0 */
+/**
+ * Crea un nuovo min-heap vuoto che può contenere al massimo `size` elementi.
+*/
 MinHeap *minheap_create(int size);
 
 /* Svuota lo heap */
@@ -54,10 +51,7 @@ int minheap_min(const MinHeap *h);
 /* Restituisce la coppia (chiave, prio) con priorità minima; non
    modifica lo heap.
 
-   Precondizione: lo heap non deve essere vuoto.
-
-   TODO: questa funzione sostituirà minheap_min() nella prossima
-   edizione del corso; per ora non viene usata. */
+   Precondizione: lo heap non deve essere vuoto. */
 HeapElem minheap_min2(const MinHeap *h);
 
 /* Inserisce una nuova chiave `key` con priorità `prio`.
@@ -99,9 +93,9 @@ typedef struct {
     int *out_deg;       /* grado uscente dei nodi       */
 } Graph;
 
-/* Crea un nuovo grafo con `n` nodi. Il numero di nodi deve essere
-   strettamente positivo. Il tipo di grafo (orientato oppure non
-   orientato) è specificato dal parametro `t`. */
+/**
+ * Crea un nuovo grafo con `n` nodi e tipo `t`.
+*/
 Graph *graph_create(int n, Graph_type t);
 
 /* Libera tutta la memoria occupata dal grafo e dalle liste di
@@ -111,11 +105,7 @@ void graph_destroy(Graph *g);
 /* Restituisce il tipo di grafo */
 Graph_type graph_type(const Graph *g);
 
-/* Aggiunge un nuovo arco (src, dst) con peso "weight". Si puo'
-   assumere che l'arco non esista già (si può omettere il controllo,
-   anche se nella soluzione fornita viene fatto). Nel caso di grafo
-   non orientato, occorre aggiungere l'arco sia nella lista di
-   adiacenza di `src` che in quella di `dst`. */
+/* Aggiunge un nuovo arco (src, dst) con peso "weight". */
 void graph_add_edge(Graph *g, int src, int dst, double weight);
 
 /* Restituisce un puntatore al primo arco della lista di adiacenza
@@ -164,7 +154,7 @@ void graph_destroy(Graph *g)
             free(edge);
             edge = next;
         }
-        g->edges[i] = NULL; /* e' superfluo */
+        g->edges[i] = NULL; 
     }
     free(g->edges);
     free(g->in_deg);
@@ -191,18 +181,8 @@ static Edge *new_edge(int src, int dst, double weight, Edge *next)
     return edge;
 }
 
-/* Inserisce l'arco (src, dst, weight) nel grafo; NON viene inserito
-   l'arco opposto nel caso di grafo non orientato (occorre invocare
-   due volte questa funzione). Questa funzione ritorna sempre 0; se si
-   effettua il controllo sulla presenza di archi duplicati (controllo
-   che aumenta il costo asintotico di questa operazione), la funzione
-   restituisce true (nonzero) se e solo se l'arco (src, dst) esiste
-   già e quindi non viene inserito. */
 static int graph_adj_insert(Graph *g, int src, int dst, double weight)
 {
-    /* Inseriamo l'arco all'inizio della lista di adiacenza.  Se non
-       ci fosse il controllo precedente, l'inserimento di un arco
-       richiederebbe tempo O(1) */
     g->edges[src] = new_edge(src, dst, weight, g->edges[src]);
     g->in_deg[dst]++;
     g->out_deg[src]++;
@@ -260,8 +240,6 @@ void minheap_clear( MinHeap *h )
     h->n = 0;
 }
 
-/* Costruisce un min-heap vuoto che può contenere al massimo
-   `size` elementi */
 MinHeap *minheap_create(int size)
 {
     MinHeap *h = (MinHeap*)malloc(sizeof(*h));
@@ -287,20 +265,7 @@ void minheap_destroy( MinHeap *h )
     free(h);
 }
 
-/**
- ** Di seguito vengono definite alcune funzioni di utilità generale
- ** che potrebbero tornare comode nella gestione dello heap (la
- ** soluzione da me fornita userà queste funzioni). Sono tutte
- ** definite "static" perché possano essere richiamate solo da altre
- ** funzioni in questo file sorgente.
- **
- ** NON È OBBLIGATORIO USARLE: chi vuole può ignorarle o cancellarle,
- ** e procedere con la propria implementazione. (Se non vengono usate
- ** il compilatore segnalerà dei warning, per cui forse conviene
- ** eliminarle se non servono).
- **/
-
-/* Restituisce 1 sse l'indice `i` appartiene all'intervallo degli
+/* Restituisce 1 se l'indice `i` appartiene all'intervallo degli
    indici validi degli elementi validi nell'array che rappresenta lo
    heap. */
 static int valid(const MinHeap *h, int i)
@@ -399,9 +364,6 @@ static void move_down(MinHeap *h, int i)
 
     assert(valid(h, i));
 
-    /* L'operazione viene implementata iterativamente, sebbene sia
-       possibile una implementazione ricorsiva probabilmente più
-       leggibile. */
     do {
         const int dst = min_child(h, i);
         if (valid(h, dst) && (h->heap[dst].prio < h->heap[i].prio)) {
@@ -413,7 +375,6 @@ static void move_down(MinHeap *h, int i)
     } while (!done);
 }
 
-/* Restituisce true (nonzero) se lo heap è vuoto */
 int minheap_is_empty(const MinHeap *h)
 {
     assert(h != NULL);
@@ -421,8 +382,6 @@ int minheap_is_empty(const MinHeap *h)
     return (h->n == 0);
 }
 
-/* Restituisce true (nonzero) se lo heap è pieno, cioè è stata
-   esaurita la capienza a disposizione */
 int minheap_is_full(const MinHeap *h)
 {
     assert(h != NULL);
@@ -430,7 +389,6 @@ int minheap_is_full(const MinHeap *h)
     return (h->n == h->size);
 }
 
-/* Restituisce il numero di elementi presenti nello heap */
 int minheap_get_n(const MinHeap *h)
 {
     assert(h != NULL);
@@ -438,7 +396,6 @@ int minheap_get_n(const MinHeap *h)
     return h->n;
 }
 
-/* Restituisce la chiave associata alla priorità minima */
 int minheap_min(const MinHeap *h)
 {
     assert( !minheap_is_empty(h) );
@@ -446,7 +403,6 @@ int minheap_min(const MinHeap *h)
     return h->heap[0].key;
 }
 
-/* Come minheap_min(), ma restituisce la coppia (chiave, prio) */
 HeapElem minheap_min2( const MinHeap *h)
 {
     assert( !minheap_is_empty(h) );
@@ -454,7 +410,6 @@ HeapElem minheap_min2( const MinHeap *h)
     return h->heap[0];
 }
 
-/* Inserisce una nuova coppia (key, prio) nello heap. */
 void minheap_insert(MinHeap *h, int key, double prio)
 {
     int i;
@@ -470,8 +425,6 @@ void minheap_insert(MinHeap *h, int key, double prio)
     move_up(h, i);
 }
 
-/* Rimuove la coppia (chiave, priorità) con priorità minima;
-   restituisce la chiave associata alla priorità minima. */
 int minheap_delete_min(MinHeap *h)
 {
     int result;
@@ -489,8 +442,6 @@ int minheap_delete_min(MinHeap *h)
     return result;
 }
 
-/* Modifica la priorità associata alla chiave key. La nuova priorità
-   può essere maggiore, minore o uguale alla precedente. */
 void minheap_change_prio(MinHeap *h, int key, double newprio)
 {
     int j;
@@ -512,7 +463,7 @@ void minheap_change_prio(MinHeap *h, int key, double newprio)
 /**
  * Getter of the array index of the flattened matrix.
 */
-int getIndex(int i, int j, int nCol) {
+static int getIndex(int i, int j, int nCol) {
     return i * nCol + j;
 }
 
@@ -569,7 +520,10 @@ void dijkstra( const Graph *g, int s, double *d, int *p)
 }
 
 void printPath(int k, int *path, int m, int **matrix) {
-    int i, i2, j2, w;
+    int i = 0;
+    int i2 = 0; 
+    int j2 = 0; 
+    int w = 0;
     if(k == 1) {
         printf("-1 -1\n");
     } else {
@@ -599,7 +553,7 @@ void printPath(int k, int *path, int m, int **matrix) {
 }
 
 
-int ** fillMatrix(FILE *filein, int n, int m) {
+int **fillMatrix(FILE *filein, int n, int m) {
     int i, j, val;
     char cval;
     int **matrix;
@@ -631,6 +585,7 @@ void fillGraph(Graph *g, int **matrix, int n, int m) {
             
             if (val == 0 || val == -1) {
                 if (i == n - 1 && j == m - 1) {
+                    /* arrived at the end of the matrix */
                     break;
                 } else if (j == m - 1) {
                     if (matrix[i+1][j] == 0) {
@@ -698,8 +653,8 @@ int main(int argc, char const *argv[])
         for (j = 0; j < m; j++) {
             val = matrix[i][j];
             if (val > 0) {
-                for (k = 1; k <= val; k++) {
-                    if (matrix[i][j+k] == 0 && j + k <= m) {
+                for (k = 1; j + k <= m && k <= val; k++) {
+                    if (matrix[i][j+k] == 0) {
                         matrix[i][j+k] = -1;        
                     }
                 }

@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "__threading_support": "c",
+        "compare": "c",
+        "new": "c",
+        "typeinfo": "c"
+    }
+}
