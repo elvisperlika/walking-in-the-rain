@@ -623,14 +623,14 @@ void fillGraph(Graph *g, int **matrix, int n, int m) {
 
 int main(int argc, char const *argv[])
 {
-    Graph *g;
-    int n, m;
-    int i, j, k;
-    int val;
+    Graph *g = NULL;
+    int n = 0, m = 0;
+    int i = 0, j = 0, k = 0;
+    int val = 0;
     int **matrix;
-    double *d; 
-    int *p;
-    int *path;
+    double *d = NULL; 
+    int *p = NULL;
+    int *path = NULL;
     FILE *filein = stdin;
     if (argc < 2) {
         fprintf(stderr, "Usage: %s filename [src [dst]]\n", argv[0]);
