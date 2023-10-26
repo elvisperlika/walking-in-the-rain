@@ -11,6 +11,8 @@
 #include "math.h"
 
 #define NODE_UNDEF -1
+#define WET 0
+#define DRY -1
 
 typedef struct {
     int key;
@@ -586,32 +588,34 @@ void fillGraph(Graph *g, int **matrix, int n, int m) {
         for (j = 0; j < m; j++) {
             val = matrix[i][j];
             
-            /* if the value is a sidewalk and it isn't the 
-             * bot-right element of the matrix */
-            if ((val == 0 || val == -1) && !(i == n - 1 && j == m - 1)) {
-                if (j == m - 1 && matrix[i+1][j] == 0) {
+            /* if the value is a sidewalk 
+             * and it isn't the bot-right element of the matrix 
+             * and the val's right sidewalk or val's bottom sidewalk are in the array */
+            if (!(i == n - 1 && j == m - 1) && (val == WET || val == DRY)) {
+                if (i + 1 < n && j == m - 1 && matrix[i+1][j] == WET) {
                     graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
                 } 
-                else if (j == m - 1 && matrix[i+1][j] == -1) {
+                else if (i + 1 < n && j == m - 1 && matrix[i+1][j] == DRY) {
                     graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
                 } 
-                else if (i == n - 1 && matrix[i][j+1] == 0) {
+                else if (j + 1 < m && i == n - 1 && matrix[i][j+1] == WET) {
                     graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
                 } 
-                else if (i == n - 1 && matrix[i][j+1] == -1) {
+                else if (j + 1 < m && i == n - 1 && matrix[i][j+1] == DRY) {
                     graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
                 } 
-                if (j + 1 < m && matrix[i][j+1] == 0) {
-                    graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
-                } else if (j + 1 < m && matrix[i][j+1] == -1) {
-                    graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
+                else {
+                    if (j + 1 < m && matrix[i][j+1] == WET) {
+                        graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
+                    } else if (j + 1 < m && matrix[i][j+1] == DRY) {
+                        graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
+                    }
+                    if (i + 1 < n && matrix[i+1][j] == WET) {
+                        graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
+                    } else if (i + 1 < n && matrix[i+1][j] == DRY) {
+                        graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
+                    }
                 }
-                if (i + 1 < n && matrix[i+1][j] == 0) {
-                    graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
-                } else if (i + 1 < n && matrix[i+1][j] == -1) {
-                    graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
-                }
-                
             }
         }
     }
