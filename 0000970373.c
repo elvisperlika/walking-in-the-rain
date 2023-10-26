@@ -658,7 +658,7 @@ int main(int argc, char const *argv[])
         for (j = 0; j < m; j++) {
             val = matrix[i][j];
             if (val > 0) {
-                for (k = 1; j + k <= m && k <= val; k++) {
+                for (k = 1; j + k < m && k <= val; k++) {
                     if (matrix[i][j+k] == 0) {
                         matrix[i][j+k] = -1;        
                     }
