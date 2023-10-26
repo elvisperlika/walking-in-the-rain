@@ -577,40 +577,41 @@ int **fillMatrix(FILE *filein, int n, int m) {
 }
 
 void fillGraph(Graph *g, int **matrix, int n, int m) {
-    int i, j, val;
+
+    int i = 0, j = 0, val = 0;
+
+    printf("n: %d, m: %d\n", n, m);
     /* set the edges with weight */
     for (i = 0; i < n; i++) {
         for (j = 0; j < m; j++) {
             val = matrix[i][j];
             
-            if (val == 0 || val == -1) {
-                if (i == n - 1 && j == m - 1) {
-                    /* arrived at the end of the matrix */
-                    break;
-                } else if (j == m - 1) {
-                    if (matrix[i+1][j] == 0) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
-                    } else if (matrix[i+1][j] == -1) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
-                    }
-                } else if (i == n - 1) {
-                    if (matrix[i][j+1] == 0) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
-                    } else if (matrix[i][j+1] == -1) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
-                    }
-                } else {
-                    if (matrix[i][j+1] == 0) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
-                    } else if (matrix[i][j+1] == -1) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
-                    }
-                    if (matrix[i+1][j] == 0) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
-                    } else if (matrix[i+1][j] == -1) {
-                        graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
-                    }
+            /* if the value is a sidewalk and it isn't the 
+             * bot-right element of the matrix */
+            if ((val == 0 || val == -1) && !(i == n - 1 && j == m - 1)) {
+                if (j == m - 1 && matrix[i+1][j] == 0) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
+                } 
+                else if (j == m - 1 && matrix[i+1][j] == -1) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
+                } 
+                else if (i == n - 1 && matrix[i][j+1] == 0) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
+                } 
+                else if (i == n - 1 && matrix[i][j+1] == -1) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
+                } 
+                if (j + 1 < m && matrix[i][j+1] == 0) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1.1);
+                } else if (j + 1 < m && matrix[i][j+1] == -1) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i, j+1, m), 1);
                 }
+                if (i + 1 < n && matrix[i+1][j] == 0) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1.1);
+                } else if (i + 1 < n && matrix[i+1][j] == -1) {
+                    graph_add_edge(g, getIndex(i, j, m), getIndex(i+1, j, m), 1);
+                }
+                
             }
         }
     }
