@@ -28,15 +28,15 @@ relocations:
   - { offsetInCU: 0x703, offset: 0x703, size: 0x8, addend: 0x0, symName: _valid, symObjAddr: 0x1450, symBinAddr: 0x100002A10, symSize: 0x80 }
   - { offsetInCU: 0x73C, offset: 0x73C, size: 0x8, addend: 0x0, symName: _dijkstra, symObjAddr: 0x14D0, symBinAddr: 0x100002A90, symSize: 0x1C0 }
   - { offsetInCU: 0x7CB, offset: 0x7CB, size: 0x8, addend: 0x0, symName: _printPath, symObjAddr: 0x1690, symBinAddr: 0x100002C50, symSize: 0x220 }
-  - { offsetInCU: 0x869, offset: 0x869, size: 0x8, addend: 0x0, symName: _getIJ, symObjAddr: 0x18B0, symBinAddr: 0x100002E70, symSize: 0x30 }
-  - { offsetInCU: 0x8BC, offset: 0x8BC, size: 0x8, addend: 0x0, symName: _fillMatrix, symObjAddr: 0x18E0, symBinAddr: 0x100002EA0, symSize: 0x110 }
-  - { offsetInCU: 0x94F, offset: 0x94F, size: 0x8, addend: 0x0, symName: _fillGraph, symObjAddr: 0x19F0, symBinAddr: 0x100002FB0, symSize: 0x4F0 }
-  - { offsetInCU: 0x9CF, offset: 0x9CF, size: 0x8, addend: 0x0, symName: _getIndex, symObjAddr: 0x1EE0, symBinAddr: 0x1000034A0, symSize: 0x20 }
-  - { offsetInCU: 0xA17, offset: 0xA17, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1F00, symBinAddr: 0x1000034C0, symSize: 0x380 }
-  - { offsetInCU: 0xB07, offset: 0xB07, size: 0x8, addend: 0x0, symName: _get_path, symObjAddr: 0x2280, symBinAddr: 0x100003840, symSize: 0x70 }
-  - { offsetInCU: 0xB6D, offset: 0xB6D, size: 0x8, addend: 0x0, symName: _new_edge, symObjAddr: 0x22F0, symBinAddr: 0x1000038B0, symSize: 0xA0 }
-  - { offsetInCU: 0xBCD, offset: 0xBCD, size: 0x8, addend: 0x0, symName: _parent, symObjAddr: 0x2390, symBinAddr: 0x100003950, symSize: 0x70 }
-  - { offsetInCU: 0xC06, offset: 0xC06, size: 0x8, addend: 0x0, symName: _min_child, symObjAddr: 0x2400, symBinAddr: 0x1000039C0, symSize: 0x100 }
-  - { offsetInCU: 0xC6C, offset: 0xC6C, size: 0x8, addend: 0x0, symName: _lchild, symObjAddr: 0x2500, symBinAddr: 0x100003AC0, symSize: 0x70 }
-  - { offsetInCU: 0xCA5, offset: 0xCA5, size: 0x8, addend: 0x0, symName: _rchild, symObjAddr: 0x2570, symBinAddr: 0x100003B30, symSize: 0x67 }
+  - { offsetInCU: 0x85A, offset: 0x85A, size: 0x8, addend: 0x0, symName: _getIJ, symObjAddr: 0x18B0, symBinAddr: 0x100002E70, symSize: 0x30 }
+  - { offsetInCU: 0x8AD, offset: 0x8AD, size: 0x8, addend: 0x0, symName: _fillMatrix, symObjAddr: 0x18E0, symBinAddr: 0x100002EA0, symSize: 0x110 }
+  - { offsetInCU: 0x940, offset: 0x940, size: 0x8, addend: 0x0, symName: _fillGraph, symObjAddr: 0x19F0, symBinAddr: 0x100002FB0, symSize: 0x4F0 }
+  - { offsetInCU: 0x9C0, offset: 0x9C0, size: 0x8, addend: 0x0, symName: _getIndex, symObjAddr: 0x1EE0, symBinAddr: 0x1000034A0, symSize: 0x20 }
+  - { offsetInCU: 0xA08, offset: 0xA08, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1F00, symBinAddr: 0x1000034C0, symSize: 0x380 }
+  - { offsetInCU: 0xAF8, offset: 0xAF8, size: 0x8, addend: 0x0, symName: _get_path, symObjAddr: 0x2280, symBinAddr: 0x100003840, symSize: 0x70 }
+  - { offsetInCU: 0xB5E, offset: 0xB5E, size: 0x8, addend: 0x0, symName: _new_edge, symObjAddr: 0x22F0, symBinAddr: 0x1000038B0, symSize: 0xA0 }
+  - { offsetInCU: 0xBBE, offset: 0xBBE, size: 0x8, addend: 0x0, symName: _parent, symObjAddr: 0x2390, symBinAddr: 0x100003950, symSize: 0x70 }
+  - { offsetInCU: 0xBF7, offset: 0xBF7, size: 0x8, addend: 0x0, symName: _min_child, symObjAddr: 0x2400, symBinAddr: 0x1000039C0, symSize: 0x100 }
+  - { offsetInCU: 0xC5D, offset: 0xC5D, size: 0x8, addend: 0x0, symName: _lchild, symObjAddr: 0x2500, symBinAddr: 0x100003AC0, symSize: 0x70 }
+  - { offsetInCU: 0xC96, offset: 0xC96, size: 0x8, addend: 0x0, symName: _rchild, symObjAddr: 0x2570, symBinAddr: 0x100003B30, symSize: 0x67 }
 ...
