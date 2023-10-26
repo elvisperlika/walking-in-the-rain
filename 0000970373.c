@@ -521,7 +521,7 @@ void dijkstra( const Graph *g, int s, double *d, int *p)
     minheap_destroy(h);
 }
 
-void printPath(int k, int *path, int m, int **matrix) {
+void printPath(int k, int *path, int m, int n, int **matrix) {
     int i = 0;
     int i2 = 0; 
     int j2 = 0; 
@@ -543,11 +543,11 @@ void printPath(int k, int *path, int m, int **matrix) {
         for (i = 0; i < k; i++) {
             if (path[i] == path[i+1] - 1) {
                 printf("E");
-            } else if (path[i] == path[i+1] - m) {
+            } else if (i + 1 < m && path[i] == path[i+1] - m) {
                 printf("S");
-            } else if (path[i] == path[i+1] + 1) {
+            } else if (i + 1 < m && path[i] == path[i+1] + 1) {
                 printf("W");
-            } else if (path[i] == path[i+1] + m) {
+            } else if (i + 1 < m && path[i] == path[i+1] + m) {
                 printf("N");
             }
         }
@@ -685,7 +685,7 @@ int main(int argc, char const *argv[])
     k = get_path(p, 0, (n*m) - 1, path);
 
 
-    printPath(k, path, m, matrix);
+    printPath(k, path, m, n, matrix);
     
 
     /* free memory */
