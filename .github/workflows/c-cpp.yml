@@ -13,18 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: gcc
-      run: gcc
-    - name: -g
-      run: -g
-    - name: file
-      run: 0000970373.c
-    - name: obj
-      run: -o
-    - name: main
-      run: -o
-
+    - name: compile
+      run: gcc -g 0000970373.c -o main
     - name: run
-      run: ./main
-    - name: par
-      run: test3.in
+      run: ./main test3.in
