@@ -582,7 +582,6 @@ void fillGraph(Graph *g, int **matrix, int n, int m) {
 
     int i = 0, j = 0, val = 0;
 
-    printf("n: %d, m: %d\n", n, m);
     /* set the edges with weight */
     for (i = 0; i < n; i++) {
         for (j = 0; j < m; j++) {
