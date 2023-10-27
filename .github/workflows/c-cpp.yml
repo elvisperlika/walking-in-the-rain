@@ -13,11 +13,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: gcc
+      run: gcc
+    - name: -g
+      run: -g
+    - name: file
+      run: 0000970373.c
+    - name: obj
+      run: -o
+    - name: main
+      run: -o
+
+    - name: run
+      run: ./main
+    - name: par
+      run: test3.in
