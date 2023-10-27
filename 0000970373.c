@@ -571,7 +571,7 @@ int **fillMatrix(FILE *filein, int n, int m) {
             if (cval == '\n') {
                 fscanf(filein, "%c", &cval);
             }
-            val = atoi(&cval);
+            val = cval - '0';
             matrix[i][j] = val;
         }
     }
